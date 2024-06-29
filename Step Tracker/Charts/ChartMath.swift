@@ -24,10 +24,7 @@ struct ChartMath {
            weekdayChartData.append(.init(date: firstValue.date, value: avgSteps))
        }
        
-       for metric in sortedByWeekday {
-           print(metric.date.weekdayInt)
-       }
         
-        return []
+        return weekdayChartData
     }
 }
