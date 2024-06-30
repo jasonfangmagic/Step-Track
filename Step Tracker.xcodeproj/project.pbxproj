@@ -21,6 +21,9 @@
 		F22CEC4C2C2DB5B100577279 /* Date + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CEC4B2C2DB5B100577279 /* Date + Ext.swift */; };
 		F22CEC4F2C2DB93C00577279 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = F22CEC4E2C2DB93C00577279 /* Algorithms */; };
 		F22CEC512C2DBE4500577279 /* StepPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CEC502C2DBE4500577279 /* StepPieChart.swift */; };
+		F22CEC532C30F1B900577279 /* WeightLineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CEC522C30F1B900577279 /* WeightLineChart.swift */; };
+		F22CEC562C30F45300577279 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CEC552C30F45300577279 /* MockData.swift */; };
+		F22CEC582C31EA6D00577279 /* WeightDiffBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CEC572C31EA6D00577279 /* WeightDiffBarChart.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +42,9 @@
 		F22CEC482C2DB50B00577279 /* ChartDataTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataTypes.swift; sourceTree = "<group>"; };
 		F22CEC4B2C2DB5B100577279 /* Date + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Ext.swift"; sourceTree = "<group>"; };
 		F22CEC502C2DBE4500577279 /* StepPieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepPieChart.swift; sourceTree = "<group>"; };
+		F22CEC522C30F1B900577279 /* WeightLineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightLineChart.swift; sourceTree = "<group>"; };
+		F22CEC552C30F45300577279 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		F22CEC572C31EA6D00577279 /* WeightDiffBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightDiffBarChart.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +76,8 @@
 				F22CEC462C2DB4BD00577279 /* ChartMath.swift */,
 				F22CEC482C2DB50B00577279 /* ChartDataTypes.swift */,
 				F22CEC502C2DBE4500577279 /* StepPieChart.swift */,
+				F22CEC522C30F1B900577279 /* WeightLineChart.swift */,
+				F22CEC572C31EA6D00577279 /* WeightDiffBarChart.swift */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
@@ -109,6 +117,7 @@
 		ED6FEBA22BCD673C00242245 /* Step Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				F22CEC542C30F42C00577279 /* Utilities */,
 				F22CEC4A2C2DB59B00577279 /* Extension */,
 				ED093F6E2BD2AF92006971C8 /* Step Tracker.entitlements */,
 				ED6FEBA32BCD673C00242245 /* Step_TrackerApp.swift */,
@@ -136,6 +145,14 @@
 				F22CEC4B2C2DB5B100577279 /* Date + Ext.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		F22CEC542C30F42C00577279 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				F22CEC552C30F45300577279 /* MockData.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,8 +232,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED8868082BD032DB009B7541 /* HealthDataListView.swift in Sources */,
+				F22CEC582C31EA6D00577279 /* WeightDiffBarChart.swift in Sources */,
 				ED6FEBA62BCD673C00242245 /* DashboardView.swift in Sources */,
 				ED03487F2BE2598300217E73 /* StepBarChart.swift in Sources */,
+				F22CEC562C30F45300577279 /* MockData.swift in Sources */,
 				ED6FEBA42BCD673C00242245 /* Step_TrackerApp.swift in Sources */,
 				ED093F702BD2B190006971C8 /* HealthKitManager.swift in Sources */,
 				ED093F6D2BD29DC6006971C8 /* HealthKitPermissionPrimingView.swift in Sources */,
@@ -224,6 +243,7 @@
 				ED093F742BD82657006971C8 /* HealthMetric.swift in Sources */,
 				F22CEC492C2DB50B00577279 /* ChartDataTypes.swift in Sources */,
 				F22CEC512C2DBE4500577279 /* StepPieChart.swift in Sources */,
+				F22CEC532C30F1B900577279 /* WeightLineChart.swift in Sources */,
 				F22CEC4C2C2DB5B100577279 /* Date + Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

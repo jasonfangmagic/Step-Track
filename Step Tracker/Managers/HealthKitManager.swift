@@ -4,7 +4,6 @@
 //
 //  Created by Sean Allen on 4/19/24.
 //
-
 import Foundation
 import HealthKit
 import Observation
@@ -17,6 +16,7 @@ import Observation
 
     var stepData: [HealthMetric] = []
     var weightData: [HealthMetric] = []
+    var weightDiffData: [HealthMetric] = []
 
     func fetchStepCount() async {
         let calendar = Calendar.current
@@ -61,6 +61,41 @@ import Observation
         } catch {
 
         }
+    }
+
+    func fetchWeightForDifferentials() async {
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: .now)
+        let endDate = calendar.date(byAdding: .day, value: 1, to: today)!
+        let startDate = calendar.date(byAdding: .day, value: -29, to: endDate)
+
+        let queryPredicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate)
+        let samplePredicate = HKSamplePredicate.quantitySample(type: HKQuantityType(.bodyMass), predicate: queryPredicate)
+        let weightQuery = HKStatisticsCollectionQueryDescriptor(predicate: samplePredicate,
+                                                                options: .mostRecent,
+                                                                anchorDate: endDate,
+                                                                intervalComponents: .init(day: 1))
+
+        do {
+            let weights = try await weightQuery.result(for: store)
+            weightDiffData = weights.statistics().map {
+                .init(date: $0.startDate, value: $0.mostRecentQuantity()?.doubleValue(for: .pound()) ?? 0)
+            }
+        } catch {
+
+        }
+    }
+
+    func addStepData(for date: Date, value: Double) async {
+        let stepQuantity = HKQuantity(unit: .count(), doubleValue: value)
+        let stepSample = HKQuantitySample(type: HKQuantityType(.stepCount), quantity: stepQuantity, start: date, end: date)
+        try! await store.save(stepSample)
+    }
+
+    func addWeightData(for date: Date, value: Double) async {
+        let weightQuantity = HKQuantity(unit: .pound(), doubleValue: value)
+        let weightSample = HKQuantitySample(type: HKQuantityType(.bodyMass), quantity: weightQuantity, start: date, end: date)
+        try! await store.save(weightSample)
     }
 
 //    func addSimulatorData() async {
