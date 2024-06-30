@@ -4,7 +4,6 @@
 //
 //  Created by Sean Allen on 4/19/24.
 //
-
 import Foundation
 import HealthKit
 import Observation
@@ -63,9 +62,8 @@ import Observation
 
         }
     }
-    
-    
-    func fetchWeightsForDifferentials() async {
+
+    func fetchWeightForDifferentials() async {
         let calendar = Calendar.current
         let today = calendar.startOfDay(for: .now)
         let endDate = calendar.date(byAdding: .day, value: 1, to: today)!
@@ -86,6 +84,18 @@ import Observation
         } catch {
 
         }
+    }
+
+    func addStepData(for date: Date, value: Double) async {
+        let stepQuantity = HKQuantity(unit: .count(), doubleValue: value)
+        let stepSample = HKQuantitySample(type: HKQuantityType(.stepCount), quantity: stepQuantity, start: date, end: date)
+        try! await store.save(stepSample)
+    }
+
+    func addWeightData(for date: Date, value: Double) async {
+        let weightQuantity = HKQuantity(unit: .pound(), doubleValue: value)
+        let weightSample = HKQuantitySample(type: HKQuantityType(.bodyMass), quantity: weightQuantity, start: date, end: date)
+        try! await store.save(weightSample)
     }
 
 //    func addSimulatorData() async {
