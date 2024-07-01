@@ -13,7 +13,7 @@ struct WeightTabView: View {
             DietView()
                 .tabItem {
                     Image(systemName: "fork.knife")
-                Text("Diet")}
+                Text("Diet Plan")}
             WeightView()
                 .tabItem {
                    Image(systemName: "figure.run")
