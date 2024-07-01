@@ -14,7 +14,7 @@ struct Step_TrackerApp: App {
 
     var body: some Scene {
         WindowGroup {
-            DashboardView()
+            WeightView()
                 .environment(hkManager)
         }
     }

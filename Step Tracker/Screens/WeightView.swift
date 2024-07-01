@@ -22,7 +22,7 @@ enum HealthMetricContext: CaseIterable, Identifiable {
     }
 }
 
-struct DashboardView: View {
+struct WeightView: View {
 
     @Environment(HealthKitManager.self) private var hkManager
     @AppStorage("hasSeenPermissionPriming") private var hasSeenPermissionPriming = false
@@ -74,6 +74,6 @@ struct DashboardView: View {
 }
 
 #Preview {
-    DashboardView()
+    WeightView()
         .environment(HealthKitManager())
 }
